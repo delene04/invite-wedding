@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Wedding — C & D</title>
+
+<!-- Elegant serif + handwritten-style fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --paper: #f7f4eb;
+  --ink: #3e4037;
+  --sage: #7d8872;
+  --sage-light: #d9dfd1;
+  --line: #b9b9a9;
+  --white: #fffdf8;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: #c8cbbd;
+  color: var(--ink);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+}
+
+.page {
+  width: min(100%, 900px);
+  margin: 35px auto;
+  background: var(--paper);
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  padding: 70px 8% 0;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(125,136,114,.12), transparent 25%),
+    radial-gradient(circle at 90% 15%, rgba(125,136,114,.10), transparent 25%);
+  pointer-events: none;
+}
+
+/* Botanical decoration */
+.branch {
+  position: absolute;
+  width: 280px;
+  height: 170px;
+  border-top: 2px solid rgba(85,95,78,.45);
+  transform: rotate(-8deg);
+  opacity: .7;
+}
+
+.branch.top-left { top: 35px; left: -55px; }
+.branch.top-right { top: 45px; right: -55px; transform: rotate(188deg); }
+
+.leaf {
+  position: absolute;
+  width: 42px;
+  height: 22px;
+  background: #aeb9a5;
+  border-radius: 100% 0 100% 0;
+  opacity: .65;
+  transform: rotate(-35deg);
+}
+
+.leaf.l1 { top: 42px; left: 45px; }
+.leaf.l2 { top: 85px; left: 105px; transform: rotate(20deg); }
+.leaf.l3 { top: 22px; left: 145px; transform: rotate(-55deg); }
+.leaf.l4 { top: 105px; left: 180px; transform: rotate(25deg); }
+.leaf.l5 { top: 48px; left: 225px; transform: rotate(-30deg); }
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.quote {
+  max-width: 390px;
+  margin: 0 auto 35px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.initials {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(75px, 14vw, 135px);
+  font-weight: 300;
+  letter-spacing: .04em;
+  line-height: .9;
+}
+
+.divider {
+  width: 80px;
+  height: 1px;
+  background: var(--line);
+  margin: 25px auto;
+}
+
+.small-title {
+  font-size: 11px;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+}
+
+.names {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(58px, 10vw, 100px);
+  line-height: .95;
+  margin: 45px 0;
+}
+
+.names span {
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.photo {
+  width: 100%;
+  height: min(58vh, 570px);
+  object-fit: cover;
+  display: block;
+  margin-top: 20px;
+}
+
+/* ---------- INTRO ---------- */
+
+.intro {
+  text-align: center;
+  padding: 70px 9%;
+}
+
+.intro p {
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 2;
+  font-size: 13px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.script {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(50px, 9vw, 90px);
+  margin: 60px 0 30px;
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.date .big {
+  font-size: 85px;
+  line-height: 1;
+}
+
+.date small {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  letter-spacing: .2em;
+}
+
+/* ---------- DETAILS ---------- */
+
+.details {
+  padding: 80px 8%;
+  background: rgba(217,223,209,.55);
+}
+
+.section-title {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 34px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 45px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: rgba(255,253,248,.72);
+  border: 1px solid rgba(125,136,114,.3);
+  padding: 35px 25px;
+  text-align: center;
+}
+
+.time {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 32px;
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.card p {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 18px 0;
+}
+
+.button {
+  display: inline-block;
+  background: #59634f;
+  color: white;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  transition: transform .2s, opacity .2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  opacity: .88;
+}
+
+/* ---------- TIMELINE ---------- */
+
+.timeline {
+  padding: 80px 10%;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  bottom: 80px;
+  width: 1px;
+  background: #a9ad9f;
+}
+
+.event {
+  position: relative;
+  width: 50%;
+  padding: 0 45px 45px;
+}
+
+.event:nth-child(odd) {
+  text-align: right;
+  padding-left: 0;
+}
+
+.event:nth-child(even) {
+  margin-left: 50%;
+  text-align: left;
+  padding-right: 0;
+}
+
+.dot {
+  position: absolute;
+  top: 7px;
+  width: 12px;
+  height: 12px;
+  background: var(--paper);
+  border: 2px solid var(--sage);
+  border-radius: 50%;
+}
+
+.event:nth-child(odd) .dot { right: -6px; }
+.event:nth-child(even) .dot { left: -6px; }
+
+.event h3 {
+  margin: 0 0 5px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+}
+
+.event p {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* ---------- RSVP / INFO ---------- */
+
+.info {
+  padding: 75px 9%;
+  text-align: center;
+}
+
+.info-block {
+  border-top: 1px solid var(--line);
+  padding: 35px 0;
+}
+
+.info-block:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.info h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 28px;
+  margin: 0 0 12px;
+}
+
+.info p {
+  font-size: 12px;
+  line-height: 1.8;
+  max-width: 520px;
+  margin: 0 auto 22px;
+}
+
+/* ---------- FINAL PHOTO ---------- */
+
+.final-photo {
+  position: relative;
+  height: 520px;
+}
+
+.final-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.final-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 35%, rgba(30,35,28,.7));
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+}
+
+.final-overlay h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 70px;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 650px) {
+  .page {
+    margin: 0;
+    width: 100%;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 65px;
+  }
+
+  .photo {
+    height: 55vh;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline::before {
+    left: 18px;
+  }
+
+  .event,
+  .event:nth-child(even),
+  .event:nth-child(odd) {
+    width: 100%;
+    margin-left: 0;
+    padding: 0 0 42px 50px;
+    text-align: left;
+  }
+
+  .event:nth-child(odd) .dot,
+  .event:nth-child(even) .dot {
+    left: 12px;
+    right: auto;
+  }
+
+  .names {
+    margin: 35px 0;
+  }
+
+  .final-photo {
+    height: 420px;
+  }
+
+  .final-overlay h2 {
+    font-size: 55px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="branch top-left">
+      <i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i>
+      <i class="leaf l4"></i><i class="leaf l5"></i>
+    </div>
+
+    <div class="hero-content">
+      <p class="quote">
+        “Three things will last forever—faith, hope, and love.
+        And the greatest of these is love.”
+      </p>
+
+      <div class="initials">C | D</div>
+
+      <div class="divider"></div>
+      <div class="small-title">Our Wedding</div>
+
+      <div class="names">
+        Chris
+        <span>&amp;</span>
+        Delené
+      </div>
+
+      <p class="small-title">We have the honor of inviting you to our wedding</p>
+    </div>
+
+    <!-- Replace with your own engagement/wedding photo -->
+      <img  src="images/photo1.jpg.JPG" alt="Couple">
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <p>
+      With great joy and grateful hearts, together 
+      we invite you to share in the celebration of our love as we unite in marriage.
+    </p>
+
+    <div class="script">Chris &amp; Delené</div>
+    <div class="script">Bothma</div>
+    <div class="date">
+      <small>Saterday</small>
+      <div class="big">13</div>
+      <small>MARCH<br>2027</small>
+    </div>
+  </section>
+
+  <!-- CEREMONY / RECEPTION -->
+  <section class="details">
+    <h2 class="section-title">Wedding Details</h2>
+
+    <div class="detail-grid">
+      <article class="card">
+        <div class="label">Ceremony and reception</div>
+        <p>
+          Mooiplaats,Volstruis street<br>
+          Pretoria east 0036
+        </p>
+        <a class="button" href="https://www.google.com/maps/place/Esperanza+Wedding+Venue/@-25.8141374,28.4032674,1362a,86.2y,27.06h,87.33t/data=!3m7!1e1!3m5!1smSXg5kpfCZk6r5ntCQxwaA!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D2.6663357736923956%26panoid%3DmSXg5kpfCZk6r5ntCQxwaA%26yaw%3D27.05815357648316!7i16384!8i8192!4m6!3m5!1s0x1e955beb7c3b8eab:0x278deb76a61effdb!8m2!3d-25.793896!4d28.410718!16s%2Fg%2F11ggr4z0xg?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">View Location</a>
+      </article>
+
+      <article class="card">
+        <div class="label">Directions</div>
+        <p>
+          Please take note that when you reach the turn-off<br>
+          to the venue,follow the guidelines below instead of the GPS.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline">
+    <h2 class="section-title">Our love story</h2>
+
+    <div class="event">
+      <span class="dot"></span>
+      <h3>2018</h3>
+      <p>we first met at school i was the first one who caught feelings we were friends for 1 year</p>
+    </div>
+
+    <div class="event">
+      <span class="dot"></span>
+      <h3>2019</h3>
+      <p>We started dating not knowing that we will be standing infront of our family and friends saying We do </p>
+    </div>
+
+    <div class="event">
+      <span class="dot"></span>
+      <h3>7:45 PM</h3>
+      <p>Couple's Entrance</p>
+    </div>
+
+    <div class="event">
+      <span class="dot"></span>
+      <h3>8:00 PM</h3>
+      <p>Dinner</p>
+    </div>
+
+    <div class="event">
+      <span class="dot"></span>
+      <h3>9:00 PM</h3>
+      <p>Party</p>
+    </div>
+
+    <div class="event">
+      <span class="dot"></span>
+      <h3>3:30 AM</h3>
+      <p>Farewell</p>
+    </div>
+  </section>
+
+  <!-- EXTRA INFO -->
+  <section class="info">
+
+    <div class="info-block">
+      <h3>Reserved Seats for You</h3>
+      <p>Please note the number of seats reserved for your party.</p>
+      <strong style="font-family:'Cormorant Garamond'; font-size:35px;">2</strong>
+      <p>Seats</p>
+    </div>
+
+    <div class="info-block">
+      <h3>Gift Suggestion</h3>
+      <p>
+        Your presence is the greatest gift of all.
+        However, if you wish to honor us with a gift,
+        a monetary contribution will be warmly appreciated.
+      </p>
+      <a class="button" href="#rsvp">Gift Information</a>
+    </div>
+
+    <div class="info-block" id="rsvp">
+      <h3>Confirmation</h3>
+      <p>
+        Please confirm your attendance before the RSVP deadline.
+      </p>
+      <a class="button" href="https://wa.me/27000000000?text=Hi!%20I%20would%20like%20to%20RSVP%20for%20the%20wedding." target="_blank">
+        RSVP on WhatsApp
+      </a>
+    </div>
+
+    <div class="info-block">
+      <h3>Adults Only, Please</h3>
+      <p>
+        We hope you understand. Our special day is an adults-only celebration.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- FINAL PHOTO -->
+  <section class="final-photo">
+    <img
+      src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=85"
+      alt="Wedding couple">
+    <div class="final-overlay">
+      <div>
+        <h2>We can't wait to celebrate with you</h2>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
